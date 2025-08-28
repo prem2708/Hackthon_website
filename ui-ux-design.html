@@ -56,6 +56,8 @@
                             <li>All participants should showcase their skills, imagination, and creativity.</li>
                             <li>Designs must be unique; please avoid plagiarism.</li>
                             <li>The file must be submitted via the Google Form link for further judgment.</li>
+                            <li>All branches students are eligible to participate in UI/UX designing.</li>
+                            <li>All Participants are needed to bring their own laptops.</li>
                             <li>Note: Strictly no use of the internet or any networked means; the use of AI is also prohibited.</li>
                         </ul>
                     </div>
@@ -64,16 +66,27 @@
                 <div class="about-text" style="flex:1;">
                     <h2 style="text-align:left; margin-bottom:10px;">Topic</h2>
                     <div class="terms">
-                        <ul>
-                            <li><strong>Student Innovation (Free Thinking)</strong></li>
-                            <li><strong>Theme:</strong> "AI at Work: Empowering the Workforce of Tomorrow"</li>
-                        </ul>
-                        <p style="margin-top:10px; color:#ddd;"><strong>Concept:</strong> This hackathon focuses on harnessing the power of Artificial Intelligence to transform the workplace and workforce. Participants are challenged to design AI-driven solutions that improve productivity, enhance collaboration, support employee well-being, streamline workflows, and create smarter decision-making systems. The goal is to reimagine how humans and AI can work together to build inclusive, efficient, and future-ready workplaces.</p>
+                        <button class="topic-btn" onclick="openTopicModal()">
+                            <i class="fas fa-info-circle"></i> View Topic Details
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Topic Modal -->
+    <div id="topicModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTopicModal()">&times;</span>
+            <h2>Topic Details</h2>
+            <div class="modal-body">
+                <ul>
+                    <li><strong>Theme:</strong> A theme will be provided on the spot on the day of this event.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
@@ -84,6 +97,25 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <script>
+        // Topic Modal Functions
+        function openTopicModal() {
+            document.getElementById('topicModal').style.display = 'block';
+        }
+        
+        function closeTopicModal() {
+            document.getElementById('topicModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('topicModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
 
