@@ -110,9 +110,7 @@ h2:after {
 
 /* Header */
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     padding: 20px 0;
     z-index: 1000;
@@ -122,19 +120,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
+    padding: 4px 50px;
 }
 
 /* Registration deadline banner */
 #registration-deadline {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 10px 12px;
-    z-index: 1100;
+    padding: 12px 16px;
+    z-index: 900; /* below header (1000) so it sits under the nav */
+    margin-top: 8px;
+    margin-bottom: 12px;
 }
 
 #registration-deadline .deadline-inner {
@@ -152,6 +150,7 @@ header {
     opacity: 0;
     transform: translateY(-8px) scale(0.98);
     animation: bannerSlideIn 0.6s ease-out 0.1s forwards, bannerPulseGlow 3s ease-in-out 1.2s infinite;
+    pointer-events: auto;
 }
 
 #registration-deadline i {
@@ -168,9 +167,9 @@ header {
 header { padding-top: 60px; }
 
 @media (max-width: 768px) {
-    #registration-deadline { padding: 8px; }
+    #registration-deadline { padding: 8px 12px; margin-top: 6px; margin-bottom: 10px; }
     #registration-deadline .deadline-inner { padding: 6px 12px; font-size: 0.9rem; }
-    header { padding-top: 56px; }
+    header { padding-top: 15px; }
     #registration-deadline .separator { display: none; }
 }
 
@@ -234,6 +233,9 @@ nav ul {
 nav ul li {
     margin-left: 30px;
 }
+
+/* Add a small top margin to the nav bar */
+header nav { margin-top: 0; }
 
 /* Mobile nav toggle */
 .nav-toggle {

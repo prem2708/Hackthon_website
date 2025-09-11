@@ -39,18 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Header scroll effect
+    // Header reference
     const header = document.querySelector('header');
     
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.style.padding = '60px 50px 10px 50px';
-            header.style.background = 'rgba(10, 10, 10, 0.95)';
-        } else {
-            header.style.padding = '60px 50px 15px 50px';
-            header.style.background = 'rgba(10, 10, 10, 0.9)';
-        }
-    });
+    // Remove scroll adjustments since header is not sticky anymore
     
     // Form submission
     const registerForm = document.querySelector('.register-form');
@@ -132,14 +124,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Registration deadline countdown (13 Sept 2025, 05:00 PM local time)
+    // Registration deadline countdown (13 Sept 2025, 09:00 PM local time)
     (function initRegistrationCountdown() {
         const bar = document.getElementById('registration-deadline');
         const countdownEl = document.getElementById('deadline-countdown');
         if (!bar || !countdownEl) return;
 
         // Define deadline in local timezone
-        const deadline = new Date(2025, 8, 13, 17, 0, 0); // Months are 0-indexed (8 = Sept)
+        const deadline = new Date(2025, 8, 13, 21, 0, 0); // Months are 0-indexed (8 = Sept), 21:00 = 9 PM
 
         function formatTime(ms) {
             const totalSeconds = Math.max(0, Math.floor(ms / 1000));
