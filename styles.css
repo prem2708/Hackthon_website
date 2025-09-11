@@ -110,7 +110,9 @@ h2:after {
 
 /* Header */
 header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     padding: 20px 0;
     z-index: 1000;
@@ -122,6 +124,9 @@ header {
     align-items: center;
     padding: 4px 50px;
 }
+
+/* Offset removed to let hero background sit flush under sticky header */
+body { padding-top: 0; }
 
 /* Removed old alert styles */
 
@@ -339,10 +344,61 @@ nav ul li a:hover:before {
 
 /* Ensure hero CTA is visible even if other elements animate */
 .hero .hero-content .cta-button { opacity: 1 !important; }
+.hero .hero-content .hero-alert { animation: fadeInUp 0.9s ease-out 0.8s forwards; opacity: 1 !important; }
 
 .cta-button:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(225, 177, 44, 0.4);
+}
+
+/* Hero inline alert */
+.hero-alert {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(20,20,20,0.75);
+    border: 1px solid rgba(225,177,44,0.4);
+    box-shadow: 0 0 0 2px rgba(225,177,44,0.12);
+    font-size: 0.95rem;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    animation: heroAlertGlow 3.2s ease-in-out 1.2s infinite;
+}
+.hero-alert .separator { opacity: 0.6; margin: 0 12px; }
+.hero-alert #hero-deadline-countdown { margin-left: 4px; letter-spacing: 0.5px; white-space: nowrap; }
+.hero-alert i { color: #e1b12c; }
+.hero-alert strong { color: #e1b12c; }
+
+@media (max-width: 480px) {
+    .hero-alert { font-size: 0.9rem; padding: 8px 14px; gap: 16px; margin-top: 18px; }
+}
+
+/* Hero alert animations */
+@keyframes heroAlertGlow {
+    0%   { box-shadow: 0 0 0 2px rgba(225,177,44,0.12), 0 8px 22px rgba(0,0,0,0.35); }
+    50%  { box-shadow: 0 0 0 3px rgba(225,177,44,0.22), 0 12px 28px rgba(0,0,0,0.45); }
+    100% { box-shadow: 0 0 0 2px rgba(225,177,44,0.12), 0 8px 22px rgba(0,0,0,0.35); }
+}
+
+.hero-alert i {
+    animation: bellRingSmall 1s ease-in-out 0.6s 2;
+}
+
+@keyframes bellRingSmall {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-8deg); }
+    75% { transform: rotate(4deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-alert, .hero-alert i { animation: none !important; }
 }
 
 /* About Section */

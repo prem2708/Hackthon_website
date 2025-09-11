@@ -124,5 +124,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Removed registration deadline banner and countdown
+    // Hero inline countdown (13 Sept 2025, 09:00 PM local time)
+    (function initHeroCountdown() {
+        const countdownEl = document.getElementById('hero-deadline-countdown');
+        if (!countdownEl) return;
+
+        const deadline = new Date(2025, 8, 13, 21, 0, 0);
+
+        function formatTime(ms) {
+            const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+            const days = Math.floor(totalSeconds / 86400);
+            const hours = Math.floor((totalSeconds % 86400) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            const parts = [];
+            if (days > 0) parts.push(days + 'd');
+            parts.push(String(hours).padStart(2, '0') + 'h');
+            parts.push(String(minutes).padStart(2, '0') + 'm');
+            parts.push(String(seconds).padStart(2, '0') + 's');
+            return parts.join(' ');
+        }
+
+        function update() {
+            const now = new Date();
+            const diff = deadline - now;
+            if (diff <= 0) {
+                countdownEl.textContent = 'Registration closed';
+                return true;
+            }
+            countdownEl.textContent = 'Time left: ' + formatTime(diff);
+            return false;
+        }
+
+        if (!update()) {
+            const timer = setInterval(() => { if (update()) clearInterval(timer); }, 1000);
+        }
+    })();
 });
