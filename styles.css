@@ -289,7 +289,7 @@ nav ul li a:hover:before {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 92vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -974,13 +974,9 @@ footer {
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
-    .hero h1 {
-        font-size: 4rem;
-    }
+    .hero h1 { font-size: 3.6rem; }
     
-    .hero h2 {
-        font-size: 1.8rem;
-    }
+    .hero h2 { font-size: 1.7rem; }
     
     .about-content {
         flex-direction: column;
@@ -997,10 +993,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 12px 20px;
-        flex-direction: row;
-    }
+    header { padding: 8px 16px; flex-direction: row; }
     .nav-toggle { display: block; }
     nav {
         position: absolute;
@@ -1024,17 +1017,13 @@ footer {
         justify-content: flex-start;
         padding: 12px 16px;
     }
-    nav ul li { margin: 6px 0; }
-    nav ul li a { display: block; padding: 10px 8px; }
+    nav ul li { margin: 4px 0; }
+    nav ul li a { display: block; padding: 12px 10px; font-size: 1rem; }
     
-    .hero h1 {
-        font-size: 3rem;
-    }
+    .hero { min-height: 72vh; }
+    .hero h1 { font-size: 2.6rem; }
     
-    .hero h2 {
-        font-size: 1.5rem;
-        letter-spacing: 5px;
-    }
+    .hero h2 { font-size: 1.3rem; letter-spacing: 4px; }
     
     .timeline:before {
         left: 30px;
@@ -1044,10 +1033,7 @@ footer {
         left: 30px;
     }
     
-    .timeline-content {
-        width: calc(100% - 80px);
-        margin-left: 80px !important;
-    }
+    .timeline-content { width: calc(100% - 80px); margin-left: 80px !important; }
     
     .timeline-item:nth-child(odd) .timeline-content:before,
     .timeline-item:nth-child(even) .timeline-content:before {
@@ -1058,14 +1044,9 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
+    .hero h1 { font-size: 2.3rem; }
     
-    .hero h2 {
-        font-size: 1.2rem;
-        letter-spacing: 3px;
-    }
+    .hero h2 { font-size: 1.1rem; letter-spacing: 3px; }
     
     .cta-button {
         padding: 12px 30px;
@@ -1076,10 +1057,8 @@ footer {
         font-size: 2rem;
     }
     
-    .register-form {
-        padding: 20px;
-    }
-    .team-card { height: 340px; }
+    .register-form { padding: 20px; }
+    .team-card { height: 320px; }
 }
 .card-btn {
             display: inline-block;
