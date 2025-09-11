@@ -124,46 +124,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Registration deadline countdown (13 Sept 2025, 09:00 PM local time)
-    (function initRegistrationCountdown() {
-        const bar = document.getElementById('registration-deadline');
-        const countdownEl = document.getElementById('deadline-countdown');
-        if (!bar || !countdownEl) return;
-
-        // Define deadline in local timezone
-        const deadline = new Date(2025, 8, 13, 21, 0, 0); // Months are 0-indexed (8 = Sept), 21:00 = 9 PM
-
-        function formatTime(ms) {
-            const totalSeconds = Math.max(0, Math.floor(ms / 1000));
-            const days = Math.floor(totalSeconds / 86400);
-            const hours = Math.floor((totalSeconds % 86400) / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            const parts = [];
-            if (days > 0) parts.push(days + 'd');
-            parts.push(String(hours).padStart(2, '0') + 'h');
-            parts.push(String(minutes).padStart(2, '0') + 'm');
-            parts.push(String(seconds).padStart(2, '0') + 's');
-            return parts.join(' ');
-        }
-
-        function update() {
-            const now = new Date();
-            const diff = deadline - now;
-            if (diff <= 0) {
-                countdownEl.textContent = 'Registration closed';
-                bar.style.background = 'linear-gradient(90deg, #555, #333)';
-                bar.style.color = '#fff';
-                return true; // indicates finished
-            }
-            countdownEl.textContent = 'Time left: ' + formatTime(diff);
-            return false;
-        }
-
-        if (!update()) {
-            const timer = setInterval(() => {
-                if (update()) clearInterval(timer);
-            }, 1000);
-        }
-    })();
+    // Removed registration deadline banner and countdown
 });
