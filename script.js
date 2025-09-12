@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const countdownEl = document.getElementById('hero-deadline-countdown');
         if (!countdownEl) return;
 
-        const deadline = new Date(2025, 8, 13, 21, 0, 0);
+        const deadline = new Date(2025, 8, 14, 12, 0, 0);
 
         function formatTime(ms) {
             const totalSeconds = Math.max(0, Math.floor(ms / 1000));
