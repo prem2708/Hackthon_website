@@ -75,7 +75,7 @@ h2:after {
 }
 
 .stars {
-    background: #0a0a0a url('https://ik.imagekit.io/prem2727/stars.jpg?updatedAt=1755526244674') repeat top center;
+    background: #0a0a0a url('https://ik.imagekit.io/ioyklag3bb/stars.jpg') repeat top center;
     z-index: -2;
 }
 
@@ -225,7 +225,7 @@ nav ul li a:hover:before {
     text-align: center;
     position: relative;
     overflow: hidden;
-    background: url('https://ik.imagekit.io/prem2727/stars.jpg?updatedAt=1755526244674') no-repeat center center/cover;
+    background: url('https://ik.imagekit.io/ioyklag3bb/stars.jpg') no-repeat center center/cover;
     background-color: #0a0a0a; /* Fallback color if image fails to load */
 }
 
